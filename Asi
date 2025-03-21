@@ -1,1 +1,28 @@
-https://replit.com/@haktsa/Roblox-myscript?mobileBridge=1&hideBottomBar=1&forceTheme=replitLight&errorTrace=07d12c6b-bb77-45ba-9a81-a9cf0a050086&mobileWebview=1&supportsUpsellBridge=1&permissionRequest=1&speechRecognition=1&workspace2=1&webviewBridge=1&storeReviewPrompt=1#main.lua
+-- Get references to the buttons and content frames
+local tab1Button = script.Parent.Tab1Button
+local tab2Button = script.Parent.Tab2Button
+local tab1Content = script.Parent.Tab1Content
+local tab2Content = script.Parent.Tab2Content
+
+-- Function to show the selected tab and hide others
+local function showTab(tab)
+    if tab == 1 then
+        tab1Content.Visible = true
+        tab2Content.Visible = false
+    elseif tab == 2 then
+        tab1Content.Visible = false
+        tab2Content.Visible = true
+    end
+end
+
+-- Set default tab
+showTab(1)
+
+-- Connect buttons to show their respective tabs
+tab1Button.MouseButton1Click:Connect(function()
+    showTab(1)
+end)
+
+tab2Button.MouseButton1Click:Connect(function()
+    showTab(2)
+end)
